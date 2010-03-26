@@ -1,0 +1,26 @@
+# Don't display the copyright page.
+startup_message off
+
+# Set the escape sequence to just a single backtick instead of '^a'.
+escape ``
+
+# Toggle between last used windows.
+bind = other
+
+# Shorten the time a message is displayed.
+msgwait 2.5
+
+# Set up UTF-8 as the default encoding.
+encoding UTF-8
+
+# Set format for activity messages.
+activity "Activity in window %n %t at %c"
+
+# This will show the titles and locations of all screen windows you have open at any given time.
+hardstatus alwayslastline "%{+b K} %-w%{= gw} %n %t %{= wK}%{+b K}%+w"
+
+# Increase the scroll size.
+defscrollback 3000
+
+# Copy to clipboard.
+bind b eval "writebuf /tmp/screen-pbcopy" "exec /usr/bin/osascript -e 'tell application \"System Events\"' -e 'set the clipboard to (read posix file \"/tmp/screen-pbcopy\" as text)' -e 'end tell'"

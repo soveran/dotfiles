@@ -1,0 +1,76 @@
+export PATH=~/bin:/opt/local/bin:/opt/local/sbin:/opt/local/include:/usr/local/bin:/usr/bin:/bin:/sbin
+export PS1='\[\033[01;32m\]\w \[\033[00;37m\]$(echo $(br) $(jobs | wc -l | tr -d " ")) \$\[\033[00m\] '
+export MANPATH=/opt/local/share/man:/usr/share/man:/usr/local/share/man
+export LSCOLORS=gxfxcxdxbxegedabagacad
+export CLICOLOR=1
+export EDITOR=vim
+export GREP_OPTIONS="--color=auto"
+export LESS='-RFX'
+export LANG="en_US.UTF-8"
+export LC_COLLATE="en_US.UTF-8"
+export HISTCONTROL=erasedups
+export HISTSIZE=100000
+export PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
+export CH_REPO="git@github.com:/soveran/ch-sheets.git"
+
+shopt -s histappend
+
+alias l='ls -l'
+alias top='top -ocpu'
+alias e='vim -p'
+alias irb='irb --simple-prompt --readline'
+alias rebash='. ~/.bashrc'
+alias bashrc='${EDITOR} ~/.bashrc; rebash'
+alias vimrc='${EDITOR} ~/.vimrc'
+alias gemi="sudo gem install --no-ri --no-rdoc"
+alias rc="rc -l"
+alias gst="tig status"
+alias gsh="git stash"
+alias gsp="git stash pop"
+alias gci="git commit"
+alias gco="git checkout"
+alias ..="cd .."
+alias ...="cd ../.."
+alias pw="pwsafe -upE"
+alias pwl="pwsafe --list"
+alias psg="ps | grep"
+
+ips() {
+  ifconfig | grep 'inet ' | cut -d\  -f2 | tail -n 1
+
+  inet=$(curl --connect-timeout 2 http://icanhazip.com/ 2> /dev/null)
+
+  if [ ! -z $inet ]
+  then
+    echo "$inet"
+    echo -n "$inet" | pbcopy
+  fi
+}
+
+xml() {
+  curl "$@" --location -s | tidy -xml -q -i | view -
+}
+
+pair() {
+  git config --global user.name 'Michel Martens & Damian Janowski'
+  git config --global user.email 'michel+djanowski@soveran.com'
+  gci $@
+  git config --global user.name 'Michel Martens'
+  git config --global user.email 'michel@soveran.com'
+}
+
+gush() {
+  git push origin $(br)
+}
+
+gup() {
+  git pull origin $(br)
+}
+
+br() {
+  test -d .git && git symbolic-ref HEAD 2> /dev/null | cut -d/ -f3
+}
+
+complete -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" ssh
+complete -o default -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" scp
+complete -W "$(ch find)" ch
