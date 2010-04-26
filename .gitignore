@@ -18,7 +18,8 @@
 /.bash_history
 /.bash_profile
 /.ch-sheets/
-/.gem/specs/rubygems.org%80/latest_specs.4.8
+/.gem
+/.gem
 /.gitconfig
 /.irb-history
 /.irssi/config
