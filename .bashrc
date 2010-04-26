@@ -1,4 +1,4 @@
-export PATH=~/bin:/opt/local/bin:/opt/local/sbin:/opt/local/include:/usr/local/bin:/usr/bin:/bin:/sbin
+export PATH=~/bin:/opt/local/bin:/opt/local/sbin:/opt/local/include:/usr/local/bin:/usr/bin:/bin:/sbin:/usr/sbin
 export PS1='\[\033[01;32m\]\w \[\033[00;37m\]$(echo $(br) $(jobs | wc -l | tr -d " ")) \$\[\033[00m\] '
 export MANPATH=/opt/local/share/man:/usr/share/man:/usr/local/share/man
 export LSCOLORS=gxfxcxdxbxegedabagacad
