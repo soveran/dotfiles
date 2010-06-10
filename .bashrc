@@ -9,7 +9,8 @@ export LESS='-RFX'
 export LANG="en_US.UTF-8"
 export LC_COLLATE="en_US.UTF-8"
 export HISTCONTROL=erasedups
-export HISTSIZE=100000
+export HISTFILESIZE=1000
+export HISTSIZE=1000
 export PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
 export CH_REPO="git@github.com:/soveran/ch-sheets.git"
 
@@ -34,6 +35,7 @@ alias ...="cd ../.."
 alias pw="pwsafe -upE"
 alias pwl="pwsafe --list"
 alias psg="ps | grep"
+alias hc="history -c"
 
 ips() {
   ifconfig | grep 'inet ' | cut -d\  -f2 | tail -n 1
