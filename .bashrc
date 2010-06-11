@@ -23,7 +23,7 @@ alias irb='irb --simple-prompt --readline'
 alias rebash='. ~/.bashrc'
 alias bashrc='${EDITOR} ~/.bashrc; rebash'
 alias vimrc='${EDITOR} ~/.vimrc'
-alias gemi="sudo gem install"
+alias gemi="gem install"
 alias rc="rc -l"
 alias gst="tig status"
 alias gsh="git stash"
@@ -76,3 +76,5 @@ br() {
 complete -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" ssh
 complete -o default -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" scp
 complete -W "$(ch find)" ch
+
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
