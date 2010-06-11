@@ -66,7 +66,7 @@ gush() {
 }
 
 gup() {
-  git pull origin $(br)
+  git pull
 }
 
 br() {
