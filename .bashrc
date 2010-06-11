@@ -76,5 +76,6 @@ br() {
 complete -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" ssh
 complete -o default -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" scp
 complete -W "$(ch find)" ch
+complete -W "gemspec build release" joe
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
