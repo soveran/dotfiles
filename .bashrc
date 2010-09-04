@@ -19,10 +19,9 @@ shopt -s histappend
 
 alias l='ls -l'
 alias top='top -ocpu'
-alias e='vim -p'
 alias irb='irb --simple-prompt --readline'
 alias rebash='. ~/.bashrc'
-alias bashrc='${EDITOR} ~/.bashrc; rebash'
+alias bashrc='${EDITOR} ~/.bashrc; rebash; rvm reload'
 alias vimrc='${EDITOR} ~/.vimrc'
 alias gemi="gem install"
 alias rc="rc -l"
