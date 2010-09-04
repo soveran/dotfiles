@@ -83,5 +83,6 @@ complete -o default -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" scp
 complete -W "$(ch find)" ch
 complete -W "gemspec build release" joe
 complete -f -W "open pack unpack" booklet
+complete -W "up status ssh init destroy halt suspend resume provision reload package" vagrant
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
