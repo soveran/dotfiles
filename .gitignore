@@ -25,6 +25,7 @@
 /.irssi/config
 /.irssi/default.theme
 /.lesshst
+/.lua
 /.macports/history
 /.monk
 /.rcrc
@@ -35,6 +36,7 @@
 /.ssh
 /.taskpaper
 /.thor
+/.vagrant
 /.vim/
 /.viminfo
 /.vimrc
