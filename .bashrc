@@ -74,6 +74,10 @@ br() {
   test -d .git && git symbolic-ref HEAD 2> /dev/null | cut -d/ -f3
 }
 
+graph() {
+  $1 -Tsvg -Gstylesheet="style.css" -o $2.svg $2 && open -a firefox $2.svg
+}
+
 complete -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" ssh
 complete -o default -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" scp
 complete -W "$(ch find)" ch
