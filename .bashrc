@@ -13,6 +13,7 @@ export HISTFILESIZE=1000
 export HISTSIZE=1000
 export PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
 export CH_REPO="git@github.com:/soveran/ch-sheets.git"
+export LUA_PATH="$(echo ~)/.lua/?.lua;./?.lua"
 
 shopt -s histappend
 
