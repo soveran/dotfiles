@@ -20,6 +20,7 @@ shopt -s histappend
 alias l='ls -l'
 alias top='top -ocpu'
 alias irb='irb --simple-prompt --readline'
+alias rake='rake -s'
 alias rebash='. ~/.bashrc'
 alias bashrc='${EDITOR} ~/.bashrc; rebash; rvm reload'
 alias vimrc='${EDITOR} ~/.vimrc'
