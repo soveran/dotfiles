@@ -1,5 +1,5 @@
 export PATH=~/bin:/opt/local/bin:/opt/local/sbin:/opt/local/include:/usr/local/bin:/usr/bin:/bin:/sbin:/usr/sbin
-export PS1='\[\033[01;32m\]\w \[\033[00;37m\]$(echo $(br) $(jobs | wc -l | tr -d " ")) \$\[\033[00m\] '
+export PS1='$(gemset)\[\033[01;32m\]\w \[\033[00;37m\]$(echo $(br) $(jobs | wc -l | tr -d " ")) \$\[\033[00m\] '
 export MANPATH=/opt/local/share/man:/usr/share/man:/usr/local/share/man
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export CLICOLOR=1
@@ -38,6 +38,7 @@ alias pw="pwsafe -upE"
 alias pwl="pwsafe --list"
 alias psg="ps | grep"
 alias hc="history -c"
+alias global="rvm gemset use global"
 
 ips() {
   ifconfig | grep 'inet ' | cut -d\  -f2 | tail -n 1
@@ -77,6 +78,16 @@ br() {
 
 graph() {
   $1 -Tsvg -Gstylesheet="style.css" -o $2.svg $2 && open -a firefox $2.svg
+}
+
+gemset() {
+  _gemset=`echo $GEM_HOME | cut -s -d@ -f2`
+
+  if [[ -z $_gemset ]]; then
+    echo ""
+  else
+    echo "$_gemset "
+  fi
 }
 
 complete -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" ssh
