@@ -1,5 +1,5 @@
 export PATH=~/bin:/opt/local/bin:/opt/local/sbin:/opt/local/include:/usr/local/bin:/usr/bin:/bin:/sbin:/usr/sbin
-export PS1='$(gemset)\[\033[01;32m\]\w \[\033[00;37m\]$(echo $(br) $(jobs | wc -l | tr -d " ")) \$\[\033[00m\] '
+export PS1='$(_gemset)\[\033[01;32m\]\w \[\033[00;37m\]$(echo $(br) $(jobs | wc -l | tr -d " ")) \$\[\033[00m\] '
 export MANPATH=/opt/local/share/man:/usr/share/man:/usr/local/share/man
 export LSCOLORS=gxfxcxdxbxegedabagacad
 export CLICOLOR=1
@@ -80,7 +80,7 @@ graph() {
   $1 -Tsvg -Gstylesheet="style.css" -o $2.svg $2 && open -a firefox $2.svg
 }
 
-gemset() {
+_gemset() {
   _gemset=`echo $GEM_HOME | cut -s -d@ -f2`
 
   if [[ -z $_gemset ]]; then
@@ -90,11 +90,21 @@ gemset() {
   fi
 }
 
+gemset() {
+  rvm gemset use $1
+}
+
+serve() {
+  { echo -ne "HTTP/1.0 200 OK\r\n\r\n"; cat "$1"; } | nc -l 8080
+}
+
 complete -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" ssh
 complete -o default -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" scp
 complete -W "$(ch find)" ch
-complete -W "gemspec build release" joe
+complete -W "gemspec build release install" joe
 complete -f -W "open pack unpack" booklet
 complete -W "up status ssh init destroy halt suspend resume provision reload package" vagrant
+complete -W "$(screen -ls | awk '/^\t/ { sub(/[0-9]+./, "", $1); print $1 }')" screen
+complete -W "$(ls -1 /usr/local/Cellar/figlet/2.2.2/share/figlet/fonts/)" figlet
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
