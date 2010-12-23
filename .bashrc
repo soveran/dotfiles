@@ -13,7 +13,6 @@ export HISTFILESIZE=1000
 export HISTSIZE=1000
 export PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
 export CH_REPO="git@github.com:/soveran/ch-sheets.git"
-export LUA_PATH="$(echo ~)/.lua/?.lua;./?.lua"
 
 shopt -s histappend
 
@@ -100,11 +99,7 @@ serve() {
 
 complete -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" ssh
 complete -o default -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" scp
-complete -W "$(ch find)" ch
 complete -W "gemspec build release install" joe
-complete -f -W "open pack unpack" booklet
-complete -W "up status ssh init destroy halt suspend resume provision reload package" vagrant
 complete -W "$(screen -ls | awk '/^\t/ { sub(/[0-9]+./, "", $1); print $1 }')" screen
-complete -W "$(ls -1 /usr/local/Cellar/figlet/2.2.2/share/figlet/fonts/)" figlet
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
