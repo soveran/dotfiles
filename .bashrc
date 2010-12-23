@@ -43,7 +43,7 @@ alias global="rvm gemset use global"
 ips() {
   ifconfig | grep 'inet ' | cut -d\  -f2 | tail -n 1
 
-  inet=$(curl --connect-timeout 2 http://icanhazip.com/ 2> /dev/null)
+  inet=$(curl http://icanhazip.com/ 2> /dev/null)
 
   if [ ! -z $inet ]
   then
