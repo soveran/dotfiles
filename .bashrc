@@ -37,7 +37,7 @@ alias pw="pwsafe -upE"
 alias pwl="pwsafe --list"
 alias psg="ps | grep"
 alias hc="history -c"
-alias global="rvm gemset use global"
+alias gs="rvm gemset"
 
 ips() {
   ifconfig | grep 'inet ' | cut -d\  -f2 | tail -n 1
@@ -87,10 +87,6 @@ _gemset() {
   else
     echo "$_gemset "
   fi
-}
-
-gemset() {
-  rvm gemset use $1
 }
 
 serve() {
