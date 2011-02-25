@@ -96,6 +96,5 @@ serve() {
 complete -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" ssh
 complete -o default -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" scp
 complete -W "gemspec build release install" joe
-complete -W "$(screen -ls | awk '/^\t/ { sub(/[0-9]+./, "", $1); print $1 }')" screen
 
 [[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
