@@ -38,6 +38,7 @@ alias pwl="pwsafe --list"
 alias psg="ps | grep"
 alias hc="history -c"
 alias gs="rvm gemset"
+alias chibi="rlwrap chibi-scheme"
 
 ips() {
   ifconfig | grep 'inet ' | cut -d\  -f2 | tail -n 1
