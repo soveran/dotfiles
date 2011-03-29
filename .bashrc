@@ -77,7 +77,9 @@ br() {
 }
 
 graph() {
-  $1 -Tsvg -Gstylesheet="style.css" -o $2.svg $2 && open -a firefox $2.svg
+  _svg=`basename $2 .dot`.svg
+  $1 -Tsvg -Gstylesheet="style.css" -o $_svg $2 && open -a firefox $_svg
+  unset _svg
 }
 
 _gemset() {
