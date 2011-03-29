@@ -24,7 +24,6 @@ alias rebash='. ~/.bashrc'
 alias bashrc='${EDITOR} ~/.bashrc; rebash; rvm reload'
 alias vimrc='${EDITOR} ~/.vimrc'
 alias gemi="gem install"
-alias rc="rc -l"
 alias gst="tig status"
 alias gsh="git stash"
 alias gsp="git stash pop"
