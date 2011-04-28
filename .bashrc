@@ -40,6 +40,30 @@ alias gs="rvm gemset"
 alias chibi="rlwrap chibi-scheme"
 alias dc="rlwrap dc"
 
+# Aliases for coreutils from Homebrew.
+brew_prefix=`brew --prefix`
+alias base64="$brew_prefix/bin/gbase64"
+alias chcon="$brew_prefix/bin/gchcon"
+alias dir="$brew_prefix/bin/gdir"
+alias dircolors="$brew_prefix/bin/gdircolors"
+alias factor="$brew_prefix/bin/gfactor"
+alias groups="$brew_prefix/bin/ggroups"
+alias hostid="$brew_prefix/bin/ghostid"
+alias md5sum="$brew_prefix/bin/gmd5sum"
+alias pinky="$brew_prefix/bin/gpinky"
+alias ptx="$brew_prefix/bin/gptx"
+alias runcon="$brew_prefix/bin/gruncon"
+alias seq="$brew_prefix/bin/gseq"
+alias sha1sum="$brew_prefix/bin/gsha1sum"
+alias sha225sum="$brew_prefix/bin/gsha225sum"
+alias sha256sum="$brew_prefix/bin/gsha256sum"
+alias sha384sum="$brew_prefix/bin/gsha384sum"
+alias sha512sum="$brew_prefix/bin/gsha512sum"
+alias shred="$brew_prefix/bin/gshred"
+alias shuf="$brew_prefix/bin/gshuf"
+alias tac="$brew_prefix/bin/gtac"
+alias vdir="$brew_prefix/bin/gvdir"
+
 ips() {
   ifconfig | grep 'inet ' | cut -d\  -f2 | tail -n 1
 
