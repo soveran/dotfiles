@@ -40,6 +40,10 @@ alias gs="rvm gemset"
 alias chibi="rlwrap chibi-scheme"
 alias dc="rlwrap dc"
 
+# Aliases for gnu tools.
+alias prolog="gprolog"
+alias forth="gforth"
+
 # Aliases for coreutils from Homebrew.
 brew_prefix=`brew --prefix`
 alias base64="$brew_prefix/bin/gbase64"
