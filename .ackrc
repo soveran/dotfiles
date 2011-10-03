@@ -1,4 +1,2 @@
 --type-set=haml=.haml
 --smart-case
---ignore-dir=vendor
---ignore-dir=public
