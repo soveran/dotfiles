@@ -12,7 +12,6 @@ export HISTCONTROL=erasedups
 export HISTFILESIZE=1000
 export HISTSIZE=1000
 export PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
-export CH_REPO="git@github.com:/soveran/ch-sheets.git"
 
 shopt -s histappend
 
@@ -31,10 +30,6 @@ alias gsp="git stash pop"
 alias gci="git commit"
 alias gco="git checkout"
 alias gdf="git diff --color-words"
-alias pw="pwsafe -upE"
-alias pwl="pwsafe --list"
-alias psg="ps | grep"
-alias hc="history -c"
 alias gs="rvm gemset"
 alias chibi="rlwrap chibi-scheme"
 alias dc="rlwrap dc"
