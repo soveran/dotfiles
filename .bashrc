@@ -103,7 +103,7 @@ gush() {
 }
 
 gup() {
-  git pull --rebase origin $(br)
+  git pull origin $(br)
 }
 
 br() {
