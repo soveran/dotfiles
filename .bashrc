@@ -67,6 +67,13 @@ alias shuf="$brew_prefix/bin/gshuf"
 alias tac="$brew_prefix/bin/gtac"
 alias vdir="$brew_prefix/bin/gvdir"
 
+# Change directory and update window title.
+go() {
+  cd $1
+  printf "\033k`basename $PWD`\033\\"
+}
+
+# Print public and private IP addresses.
 ips() {
   ifconfig | grep 'inet ' | cut -d\  -f2 | tail -n 1
 
