@@ -93,11 +93,11 @@ pair() {
   git config --global user.email 'michel@soveran.com'
 }
 
-gush() {
+push() {
   git push origin $(br)
 }
 
-gup() {
+pull() {
   git pull origin $(br)
 }
 
