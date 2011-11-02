@@ -8,7 +8,7 @@ escape ``
 bind ' ' other
 
 # Shorten the time a message is displayed.
-msgwait 2.5
+msgwait 0.5
 
 # Set up UTF-8 as the default encoding.
 encoding UTF-8
