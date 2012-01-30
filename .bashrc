@@ -15,13 +15,11 @@ export PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
 
 shopt -s histappend
 
-alias l='ls -l'
 alias top='top -ocpu'
 alias irb='irb --simple-prompt --readline'
 alias rake='rake -s'
 alias rebash='. ~/.bashrc'
 alias bashrc='${EDITOR} ~/.bashrc; rebash; rvm reload'
-alias vimrc='${EDITOR} ~/.vimrc'
 alias gemi="gem install"
 alias st="git status -sb"
 alias gst="tig status"
@@ -29,7 +27,6 @@ alias gsh="git stash"
 alias gsp="git stash pop"
 alias gci="git commit"
 alias gco="git checkout"
-alias gdf="git diff --color-words"
 alias gs="rvm gemset"
 alias chibi="rlwrap chibi-scheme"
 alias dc="rlwrap dc"
