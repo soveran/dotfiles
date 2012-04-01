@@ -80,14 +80,6 @@ xml() {
   curl "$@" --location -s | tidy -xml -q -i | view -
 }
 
-pair() {
-  git config --global user.name 'Michel Martens & Damian Janowski'
-  git config --global user.email 'michel+djanowski@soveran.com'
-  gci $@
-  git config --global user.name 'Michel Martens'
-  git config --global user.email 'michel@soveran.com'
-}
-
 push() {
   git push
 }
