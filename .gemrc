@@ -1,6 +1,2 @@
 ---
 gem: --no-ri --no-rdoc
-:sources:
-- http://rubygems.org
-:verbose: true
-:backtrace: true
