@@ -1,4 +1,4 @@
-export PATH=~/bin:/usr/local/bin:/usr/bin:/bin:/sbin:/usr/sbin
+export PATH=/usr/local/Cellar/ruby/1.9.3-p125/bin:~/bin:/usr/local/bin:/usr/bin:/bin:/sbin:/usr/sbin
 export PS1='$(_gemset)\[\033[01;32m\]\w \[\033[00;37m\]$(echo $(br) $(jobs | wc -l | tr -d " ")) \$\[\033[00m\] '
 export MANPATH=/opt/local/share/man:/usr/share/man:/usr/local/share/man
 export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -19,15 +19,14 @@ alias top='top -ocpu'
 alias irb='irb --simple-prompt --readline'
 alias rake='rake -s'
 alias rebash='. ~/.bashrc'
-alias bashrc='${EDITOR} ~/.bashrc; rebash; rvm reload'
+alias bashrc='${EDITOR} ~/.bashrc; rebash'
 alias gemi="gem install"
 alias st="git status -sb"
 alias gst="tig status"
-alias gsh="git stash"
+alias gsh="git stash --keep-index"
 alias gsp="git stash pop"
 alias gci="git commit"
 alias gco="git checkout"
-alias gs="rvm gemset"
 alias chibi="rlwrap chibi-scheme"
 alias dc="rlwrap dc"
 
@@ -60,8 +59,7 @@ alias tac="$brew_prefix/bin/gtac"
 alias vdir="$brew_prefix/bin/gvdir"
 
 # Change directory and update window title.
-go() {
-  cd $1
+title() {
   printf "\033k`basename $PWD`\033\\"
 }
 
@@ -91,11 +89,11 @@ pair() {
 }
 
 push() {
-  git push origin $(br)
+  git push
 }
 
 pull() {
-  git pull origin $(br)
+  git pull
 }
 
 br() {
@@ -109,12 +107,10 @@ graph() {
 }
 
 _gemset() {
-  _gemset=`echo $GEM_HOME | cut -s -d@ -f2`
-
-  if [[ -z $_gemset ]]; then
+  if [[ -z $GEM_SET ]]; then
     echo ""
   else
-    echo "$_gemset "
+    echo "$GEM_SET "
   fi
 }
 
@@ -122,8 +118,12 @@ serve() {
   { echo -ne "HTTP/1.0 200 OK\r\n\r\n"; cat "$1"; } | nc -l 8080
 }
 
+upload() {
+  dst=files.soveran.com/misc/$2
+  scp "$1" dreamhost:$dst
+  echo http://$dst
+}
+
 complete -f -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" ssh
 complete -o default -W "$(cat ~/.ssh/config | cut -d' ' -f2 | tr '\n' ' ')" scp
 complete -W "gemspec build release install" joe
-
-[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
