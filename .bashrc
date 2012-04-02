@@ -1,4 +1,8 @@
-export PATH=/usr/local/Cellar/ruby/1.9.3-p125/bin:~/bin:/usr/local/bin:/usr/bin:/bin:/sbin:/usr/sbin
+if [[ -z "$RUBYGEMS_PATH" ]]; then
+  export RUBYGEMS_PATH=/usr/local/Cellar/ruby/1.9.3-p125/bin
+  export PATH=$RUBYGEMS_PATH:$PATH
+fi
+
 export PS1='$(_gemset)\[\033[01;32m\]\w \[\033[00;37m\]$(echo $(br) $(jobs | wc -l | tr -d " ")) \$\[\033[00m\] '
 export MANPATH=/opt/local/share/man:/usr/share/man:/usr/local/share/man
 export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -11,7 +15,7 @@ export LC_COLLATE="en_US.UTF-8"
 export HISTCONTROL=erasedups
 export HISTFILESIZE=1000
 export HISTSIZE=1000
-export PROMPT_COMMAND="history -a; history -r; $PROMPT_COMMAND"
+export PROMPT_COMMAND="history -a; history -r;"
 
 shopt -s histappend
 
