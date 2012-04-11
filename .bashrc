@@ -63,7 +63,7 @@ alias tac="$brew_prefix/bin/gtac"
 alias vdir="$brew_prefix/bin/gvdir"
 
 # Change directory and update window title.
-title() {
+t() {
   printf "\033k`basename $PWD`\033\\"
 }
 
