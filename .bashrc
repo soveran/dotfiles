@@ -1,6 +1,6 @@
 if [[ -z "$RUBYGEMS_PATH" ]]; then
   export RUBYGEMS_PATH=/usr/local/Cellar/ruby/1.9.3-p125/bin
-  export PATH=$RUBYGEMS_PATH:$PATH
+  export PATH=~/bin:$RUBYGEMS_PATH:$PATH
 fi
 
 export PS1='$(_gemset)\[\033[01;32m\]\w \[\033[00;37m\]$(echo $(br) $(jobs | wc -l | tr -d " ")) \$\[\033[00m\] '
