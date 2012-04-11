@@ -103,10 +103,10 @@ graph() {
 }
 
 _gemset() {
-  if [[ -z $GEM_SET ]]; then
+  if [[ -z $GS_NAME ]]; then
     echo ""
   else
-    echo "$GEM_SET "
+    echo "$GS_NAME "
   fi
 }
 
