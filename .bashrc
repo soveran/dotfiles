@@ -15,7 +15,7 @@ export LC_COLLATE="en_US.UTF-8"
 export HISTCONTROL=erasedups
 export HISTFILESIZE=1000
 export HISTSIZE=1000
-export PROMPT_COMMAND="history -a; history -r;"
+export PROMPT_COMMAND="history -a; history -r; title"
 
 shopt -s histappend
 
@@ -62,8 +62,8 @@ alias shuf="$brew_prefix/bin/gshuf"
 alias tac="$brew_prefix/bin/gtac"
 alias vdir="$brew_prefix/bin/gvdir"
 
-# Change directory and update window title.
-t() {
+# Update window title in screen.
+title() {
   printf "\033k`basename $PWD`\033\\"
 }
 
