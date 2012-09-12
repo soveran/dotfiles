@@ -1,0 +1,38 @@
+prompt=('$ ' '')
+
+path=(
+  $HOME^/bin
+  /usr/local/Cellar/ruby/1.9.3-p125/bin
+  /usr/local/bin
+  $path)
+
+fn prompt {
+  switch($GS_NAME) {
+    case ()
+      prompt=('$ ' '')
+    case *
+      prompt=($GS_NAME^' $ ' '')
+  }
+
+  printf '\033k%s\033\\' `{basename `{pwd}}
+}
+
+fn chibi { rlwrap chibi-scheme }
+fn copy { cat $1 | pbcopy }
+
+fn st { git status -sb }
+fn gst { tig status }
+fn gsh { git stash --keep-index }
+fn gsp { git stash pop }
+fn gci { git commit }
+fn gco { git checkout $* }
+fn push { git push $* }
+fn pull { git pull $* }
+
+# upload files
+fn upload {
+  f=`{basename $1}
+  d=files.soveran.com/misc/$f
+  scp $1 soveran:$d
+  echo http://$d
+}
