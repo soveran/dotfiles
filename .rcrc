@@ -29,10 +29,13 @@ fn gco { git checkout $* }
 fn push { git push $* }
 fn pull { git pull $* }
 
-# upload files
 fn upload {
   f=`{basename $1}
   d=files.soveran.com/misc/$f
   scp $1 soveran:$d
   echo http://$d
+}
+
+fn serve {
+  { echo -ne "HTTP/1.0 200 OK\r\n\r\n"; cat $1; } | nc -l 8080
 }
