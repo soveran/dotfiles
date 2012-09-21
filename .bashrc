@@ -32,5 +32,5 @@ upload() {
 }
 
 serve() {
-  { echo -ne "HTTP/1.0 200 OK\r\n\r\n"; cat "$1"; } | nc -l 8080
+  cat "$1" | nc -l 8080
 }
