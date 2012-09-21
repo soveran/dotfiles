@@ -30,3 +30,7 @@ upload() {
   scp "$1" dreamhost:$dst
   echo http://$dst
 }
+
+serve() {
+  { echo -ne "HTTP/1.0 200 OK\r\n\r\n"; cat "$1"; } | nc -l 8080
+}
