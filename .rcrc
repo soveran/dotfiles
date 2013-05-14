@@ -1,10 +1,17 @@
 prompt=('$ ' '')
 
+NODE_PATH=/usr/local/lib/node_modules
+GOPATH=$HOME^/code/libs
+
 path=(
   $HOME^/bin
-  /usr/local/Cellar/ruby/1.9.3-p125/bin
+  /usr/local/Cellar/ruby/2.0.0-p0/bin/
+  /usr/local/sbin
   /usr/local/bin
-  $path)
+  /usr/bin
+  /bin
+  /usr/sbin
+  /sbin)
 
 fn prompt {
   switch($GS_NAME) {
@@ -17,7 +24,7 @@ fn prompt {
   printf '\033k%s\033\\' `{basename `{pwd}}
 }
 
-fn chibi { rlwrap chibi-scheme }
+fn chibi { rlwrap chibi-scheme $* }
 fn copy { cat $1 | pbcopy }
 
 fn st { git status -sb }
@@ -38,4 +45,12 @@ fn upload {
 
 fn serve {
   cat $1 | nc -l 8080
+}
+
+fn tunnel {
+  ssh -ND 9999 $1
+}
+
+fn che {
+  mv $1 `(basename $1 $2)^$3
 }

@@ -3,6 +3,7 @@ export PS1='$(_gemset)$ '
 export PROMPT_COMMAND="title"
 
 alias chibi="rlwrap chibi-scheme"
+alias dc="rlwrap dc"
 alias st="git status -sb"
 alias gst="tig status"
 alias gsh="git stash --keep-index"
@@ -27,10 +28,14 @@ _gemset() {
 
 upload() {
   dst=files.soveran.com/misc/$2
-  scp "$1" dreamhost:$dst
+  scp "$1" soveran:$dst
   echo http://$dst
 }
 
 serve() {
   cat "$1" | nc -l 8080
+}
+
+copy() {
+  cat "$1" | pbcopy
 }
