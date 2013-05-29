@@ -1,11 +1,12 @@
 prompt=('$ ' '')
 
 NODE_PATH=/usr/local/lib/node_modules
-GOPATH=$HOME^/code/libs
+GOPATH=$HOME/code/libs
+BIN=$HOME/bin
 
 path=(
-  $HOME^/bin
-  /usr/local/Cellar/ruby/2.0.0-p0/bin/
+  $BIN
+  /usr/local/Cellar/ruby/2.0.0-p195/bin/
   /usr/local/sbin
   /usr/local/bin
   /usr/bin
