@@ -1,18 +1,6 @@
 prompt=('$ ' '')
 
-NODE_PATH=/usr/local/lib/node_modules
-GOPATH=$HOME/code/libs
-BIN=$HOME/bin
-
-path=(
-  $BIN
-  /usr/local/Cellar/ruby/2.0.0-p195/bin/
-  /usr/local/sbin
-  /usr/local/bin
-  /usr/bin
-  /bin
-  /usr/sbin
-  /sbin)
+. .rcrc-local
 
 fn prompt {
   switch($GS_NAME) {
@@ -25,24 +13,14 @@ fn prompt {
   printf '\033k%s\033\\' `{basename `{pwd}}
 }
 
-fn chibi { rlwrap chibi-scheme $* }
-fn copy { cat $1 | pbcopy }
-
 fn st { git status -sb }
 fn gst { tig status }
 fn gsh { git stash --keep-index }
 fn gsp { git stash pop }
-fn gci { git commit }
+fn gci { git commit $* }
 fn gco { git checkout $* }
 fn push { git push $* }
 fn pull { git pull $* }
-
-fn upload {
-  f=`{basename $1}
-  d=files.soveran.com/misc/$f
-  scp $1 soveran:$d
-  echo http://$d
-}
 
 fn serve {
   cat $1 | nc -l 8080
@@ -50,8 +28,4 @@ fn serve {
 
 fn tunnel {
   ssh -ND 9999 $1
-}
-
-fn che {
-  mv $1 `(basename $1 $2)^$3
 }
