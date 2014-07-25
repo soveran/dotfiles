@@ -1,5 +1,3 @@
-prompt=('$ ' '')
-
 . .rcrc-local
 
 fn prompt {
