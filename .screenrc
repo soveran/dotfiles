@@ -25,3 +25,9 @@ hardstatus alwayslastline "%{KW} %-w%{Wg} %n %t %{KW}%+w %=%l %c"
 
 # Increase the scroll size.
 defscrollback 3000
+
+# Advertise color capabilities.
+term "screen-256color"
+
+# Use bright colors for bold.
+attrcolor b ".I"
