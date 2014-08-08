@@ -7,6 +7,10 @@ escape ^Ff
 # Toggle between last used windows.
 bind f other
 
+# Disable detaching.
+bind ^d
+bind d
+
 # Shorten the time a message is displayed.
 msgwait 0.5
 
