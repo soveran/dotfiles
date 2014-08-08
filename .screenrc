@@ -1,11 +1,11 @@
 # Don't display the copyright page.
 startup_message off
 
-# Set the escape sequence to just a single backtick instead of '^a'.
-escape ``
+# Set the escape sequence.
+escape ^Ff
 
 # Toggle between last used windows.
-bind ' ' other
+bind f other
 
 # Shorten the time a message is displayed.
 msgwait 0.5
