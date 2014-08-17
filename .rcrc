@@ -5,10 +5,14 @@ fn prompt {
     case ()
       prompt=('$ ' '')
     case *
-      prompt=($GS_NAME^' $ ' '')
+      prompt=('$$ ' '')
   }
 
-  printf '\033k%s\033\\' `{basename `{pwd}}
+  if (! ~ $STY ()) {
+  	if (~ $DVTM ()) {
+    		printf '\033k%s\033\\' `{basename `{pwd}}
+	}
+  }
 }
 
 fn st { git status -sb }
