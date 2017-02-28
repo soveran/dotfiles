@@ -1,18 +1,16 @@
-. .rcrc-local
+. $HOME/.rcrc-local
 
 fn prompt {
-  switch($GS_NAME) {
-    case ()
-      prompt=('$ ' '')
-    case *
-      prompt=('$$ ' '')
-  }
-
-  if (! ~ $STY ()) {
-  	if (~ $DVTM ()) {
-    		printf '\033k%s\033\\' `{basename `{pwd}}
+	switch($GS_NAME) {
+		case ()
+			prompt=('$ ' '')
+		case *
+			prompt=('$$ ' '')
 	}
-  }
+
+	if (! ~ $STY ()) {
+		printf '\033k%s\033\\' `{basename `{pwd}}
+	}
 }
 
 fn st { git status -sb }
@@ -25,9 +23,9 @@ fn push { git push $* }
 fn pull { git pull $* }
 
 fn serve {
-  cat $1 | nc -l 8080
+	cat $1 | nc -l 8080
 }
 
 fn tunnel {
-  ssh -ND 9999 $1
+	ssh -ND 9999 $1
 }
